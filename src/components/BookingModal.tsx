@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { X, Calendar, Clock, Mail, Phone, CheckCircle2, Loader2 } from "lucide-react";
+import { X, Calendar, Clock, Mail, Phone, CheckCircle2, Loader2, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useBookingModal } from "@/context/BookingModalContext";
 
@@ -17,11 +17,19 @@ export function BookingModal() {
         date: "",
         time: "",
         email: "",
-        phone: ""
+        phone: "",
+        countryCode: "+91"
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+        setErrorMsg("");
+    };
+
+    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // Only allow digits and max 10 characters
+        const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+        setFormData(prev => ({ ...prev, phone: value }));
         setErrorMsg("");
     };
 
@@ -33,6 +41,11 @@ export function BookingModal() {
 
         if (!formData.date || !formData.time || !formData.email || !formData.phone) {
             setErrorMsg("Please fill out all fields.");
+            return;
+        }
+
+        if (formData.phone.length !== 10) {
+            setErrorMsg("Phone number must be exactly 10 digits.");
             return;
         }
 
@@ -54,7 +67,7 @@ export function BookingModal() {
                     date: formData.date,
                     time: formData.time,
                     email: formData.email,
-                    phone: formData.phone
+                    phone: `${formData.countryCode}${formData.phone}`
                 }).toString();
 
                 await fetch(`${GOOGLE_SHEET_SCRIPT_URL}?${queryParams}`, {
@@ -71,7 +84,7 @@ export function BookingModal() {
                 closeModal();
                 setTimeout(() => {
                     setIsSuccess(false);
-                    setFormData({ date: "", time: "", email: "", phone: "" });
+                    setFormData({ date: "", time: "", email: "", phone: "", countryCode: "+91" });
                 }, 500); // Wait for exit animation
             }, 3000);
 
@@ -146,7 +159,7 @@ export function BookingModal() {
                                             <div className="space-y-1.5">
                                                 <label className="text-zinc-300 text-xs font-medium pl-1">Date</label>
                                                 <div className="relative">
-                                                    <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-zinc-500">
+                                                    <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-white">
                                                         <Calendar className="w-4 h-4" />
                                                     </div>
                                                     <input
@@ -155,7 +168,7 @@ export function BookingModal() {
                                                         min={today}
                                                         value={formData.date}
                                                         onChange={handleChange}
-                                                        className="w-full h-12 pl-10 pr-4 rounded-xl border border-white/10 bg-white/[0.03] text-white focus:outline-none focus:ring-2 focus:ring-[#89c240]/50 transition-all font-light text-sm hover:bg-white/[0.05]"
+                                                        className="w-full h-12 pl-10 pr-4 rounded-xl border border-white/10 bg-white/[0.03] text-white focus:outline-none focus:ring-2 focus:ring-[#89c240]/50 transition-all font-light text-sm hover:bg-white/[0.05] [color-scheme:dark]"
                                                     />
                                                 </div>
                                             </div>
@@ -164,7 +177,7 @@ export function BookingModal() {
                                             <div className="space-y-1.5">
                                                 <label className="text-zinc-300 text-xs font-medium pl-1">Time</label>
                                                 <div className="relative">
-                                                    <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-zinc-500">
+                                                    <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-white">
                                                         <Clock className="w-4 h-4" />
                                                     </div>
                                                     <input
@@ -172,7 +185,7 @@ export function BookingModal() {
                                                         name="time"
                                                         value={formData.time}
                                                         onChange={handleChange}
-                                                        className="w-full h-12 pl-10 pr-4 rounded-xl border border-white/10 bg-white/[0.03] text-white focus:outline-none focus:ring-2 focus:ring-[#89c240]/50 transition-all font-light text-sm hover:bg-white/[0.05]"
+                                                        className="w-full h-12 pl-10 pr-4 rounded-xl border border-white/10 bg-white/[0.03] text-white focus:outline-none focus:ring-2 focus:ring-[#89c240]/50 transition-all font-light text-sm hover:bg-white/[0.05] [color-scheme:dark]"
                                                     />
                                                 </div>
                                             </div>
@@ -181,17 +194,39 @@ export function BookingModal() {
                                         {/* Phone */}
                                         <div className="space-y-1.5">
                                             <label className="text-zinc-300 text-xs font-medium pl-1">Phone Number</label>
-                                            <div className="relative">
-                                                <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-zinc-500">
-                                                    <Phone className="w-4 h-4" />
+                                            <div className="flex items-center rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.05] focus-within:ring-2 focus-within:ring-[#89c240]/50 transition-all overflow-hidden h-12">
+                                                {/* Country Code Selector */}
+                                                <div className="flex items-center h-full shrink-0">
+                                                    <select
+                                                        name="countryCode"
+                                                        value={formData.countryCode}
+                                                        onChange={handleChange}
+                                                        className="bg-transparent text-white text-sm font-medium pl-3 pr-1 h-full outline-none appearance-none cursor-pointer"
+                                                    >
+                                                        <option value="+91" className="bg-[#1a1a1f]">+91</option>
+                                                        <option value="+1" className="bg-[#1a1a1f]">+1</option>
+                                                        <option value="+44" className="bg-[#1a1a1f]">+44</option>
+                                                        <option value="+61" className="bg-[#1a1a1f]">+61</option>
+                                                        <option value="+971" className="bg-[#1a1a1f]">+971</option>
+                                                        <option value="+65" className="bg-[#1a1a1f]">+65</option>
+                                                        <option value="+49" className="bg-[#1a1a1f]">+49</option>
+                                                        <option value="+33" className="bg-[#1a1a1f]">+33</option>
+                                                        <option value="+81" className="bg-[#1a1a1f]">+81</option>
+                                                        <option value="+86" className="bg-[#1a1a1f]">+86</option>
+                                                    </select>
+                                                    <ChevronDown className="w-3 h-3 text-zinc-500 mr-1 shrink-0 pointer-events-none -ml-0.5" />
                                                 </div>
+                                                {/* Divider */}
+                                                <div className="w-px h-6 bg-white/10 shrink-0"></div>
+                                                {/* Number Input */}
                                                 <input
                                                     type="tel"
                                                     name="phone"
-                                                    placeholder="+1 (555) 000-0000"
+                                                    placeholder="Phone number"
                                                     value={formData.phone}
-                                                    onChange={handleChange}
-                                                    className="w-full h-12 pl-10 pr-4 rounded-xl border border-white/10 bg-white/[0.03] text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#89c240]/50 transition-all font-light text-sm hover:bg-white/[0.05]"
+                                                    onChange={handlePhoneChange}
+                                                    maxLength={10}
+                                                    className="w-full h-full px-3 bg-transparent text-white placeholder-zinc-600 focus:outline-none font-light text-sm"
                                                 />
                                             </div>
                                         </div>

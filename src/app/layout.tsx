@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Premium Tech Services",
+  title: "Foxkrit Technology",
   description: "Websites & web apps that look premium and bring customers.",
 };
 
