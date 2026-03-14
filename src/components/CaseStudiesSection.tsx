@@ -1,202 +1,173 @@
+"use client";
+
 import { Card } from "./Card";
 import Image from "next/image";
-import { MapPin, TrendingUp, ShieldCheck, Cpu, Building2, ShoppingBag, Activity } from "lucide-react";
+import { Plus, X } from "lucide-react";
+import { useState } from "react";
 
 export function CaseStudiesSection() {
     const projects = [
         {
-            title: "OSWAS Platform",
-            subtitle: "Govt. of Odisha Administration",
-            difficulty: "Enterprise",
-            author: "Premium Tech & State Govt.",
-            stat1Val: "100%", stat1Lbl: "Paperless",
-            stat2Val: "50k+", stat2Lbl: "Users",
-            stat3Val: "24/7", stat3Lbl: "Uptime",
-            image: "/images/gov_odisha_oswas.png",
-            icon: <MapPin className="w-6 h-6 text-blue-500 drop-shadow-md" />
-        },
-        {
-            title: "MoSarkar Connect",
-            subtitle: "Citizen Feedback Portal",
-            difficulty: "High Scale",
-            author: "Premium Tech Civic Team",
-            stat1Val: "1M+", stat1Lbl: "Citizens",
-            stat2Val: "98%", stat2Lbl: "Resolved",
-            stat3Val: "Statewide", stat3Lbl: "Scale",
-            image: "/images/gov_odisha_mosarkar.png",
-            icon: <MapPin className="w-6 h-6 text-green-500 drop-shadow-md" />
-        },
-        {
-            title: "Predictive Health AI",
-            subtitle: "National Hospital Network",
-            difficulty: "Complex",
-            author: "Premium Tech AI Division",
-            stat1Val: "99%", stat1Lbl: "Accuracy",
-            stat2Val: "2.5M", stat2Lbl: "Records",
-            stat3Val: "Real-time", stat3Lbl: "Inference",
-            image: "/images/ai_healthcare.png",
-            icon: <Activity className="w-6 h-6 text-indigo-500 drop-shadow-md" />
-        },
-        {
-            title: "Smart Traffic Flow",
-            subtitle: "Metro Urban Planning",
-            difficulty: "Hard",
-            author: "Premium Tech Vision API",
-            stat1Val: "-30%", stat1Lbl: "Wait Time",
-            stat2Val: "500+", stat2Lbl: "Nodes",
-            stat3Val: "20ms", stat3Lbl: "Latency",
-            image: "/images/smart_city_ai.png",
-            icon: <Cpu className="w-6 h-6 text-violet-500 drop-shadow-md" />
-        },
-        {
-            title: "RetailSight Demand",
-            subtitle: "Global Retail Chain",
-            difficulty: "Medium",
-            author: "Premium Tech Data Eng",
-            stat1Val: "+25%", stat1Lbl: "Margins",
-            stat2Val: "10k+", stat2Lbl: "Stores",
-            stat3Val: "Daily", stat3Lbl: "Syncs",
-            image: "/images/retail_ai.png",
-            icon: <TrendingUp className="w-6 h-6 text-rose-500 drop-shadow-md" />
-        },
-        {
-            title: "FraudGuard Sentinel",
-            subtitle: "Fintech Security Protocol",
-            difficulty: "Critical",
-            author: "Premium Tech Security",
-            stat1Val: "$2M", stat1Lbl: "Saved",
-            stat2Val: "0.1%", stat2Lbl: "False Pos",
-            stat3Val: "PCI", stat3Lbl: "Compliant",
-            image: "/images/fraud_ai.png",
-            icon: <ShieldCheck className="w-6 h-6 text-red-500 drop-shadow-md" />
-        },
-        {
-            title: "SupplyChain Optimax",
-            subtitle: "Logistics Fleet Mgt.",
-            difficulty: "Hard",
-            author: "Premium Tech ML Core",
-            stat1Val: "-15%", stat1Lbl: "Costs",
-            stat2Val: "100k", stat2Lbl: "Routes",
-            stat3Val: "Global", stat3Lbl: "Reach",
-            image: "/images/supplychain_ai.png",
-            icon: <Cpu className="w-6 h-6 text-amber-500 drop-shadow-md" />
-        },
-        {
-            title: "NovaChat LLM Agent",
-            subtitle: "SaaS Customer Support",
-            difficulty: "Advanced",
-            author: "Premium Tech NLP Lab",
-            stat1Val: "85%", stat1Lbl: "Automated",
-            stat2Val: "<1s", stat2Lbl: "Response",
-            stat3Val: "50+", stat3Lbl: "Languages",
-            image: "/images/llm_agent.png",
-            icon: <Activity className="w-6 h-6 text-fuchsia-500 drop-shadow-md" />
-        },
-        {
-            title: "Lumina Architecture",
-            subtitle: "Modern Portfolio Firm",
-            difficulty: "Medium",
-            author: "Premium Tech Design",
-            stat1Val: "0.8s", stat1Lbl: "Load",
-            stat2Val: "+120%", stat2Lbl: "Leads",
-            stat3Val: "WebGL", stat3Lbl: "Driven",
-            image: "/images/client_architect.png",
-            icon: <Building2 className="w-6 h-6 text-stone-400 drop-shadow-md" />
-        },
-        {
-            title: "Apex Advisory Group",
-            subtitle: "CA Firm Client Portal",
-            difficulty: "High Sec",
-            author: "Premium Tech Fullstack",
-            stat1Val: "E2E", stat1Lbl: "Encrypted",
-            stat2Val: "10GB+", stat2Lbl: "Vaults",
-            stat3Val: "SOC2", stat3Lbl: "Compliant",
-            image: "/images/client_ca_firm.png",
-            icon: <ShieldCheck className="w-6 h-6 text-emerald-500 drop-shadow-md" />
-        },
-        {
-            title: "Velvet Couture Hub",
-            subtitle: "Boutique E-Commerce",
+            title: "LY Furniture",
+            subtitle: "E-Commerce Experience",
             difficulty: "Medium",
             author: "Premium Tech Commerce",
             stat1Val: "+45%", stat1Lbl: "Conv. Rate",
-            stat2Val: "$1M+", stat2Lbl: "Processed",
+            stat2Val: "$2M+", stat2Lbl: "Processed",
             stat3Val: "Global", stat3Lbl: "Shipping",
-            image: "/images/client_ecommerce.png",
-            icon: <ShoppingBag className="w-6 h-6 text-pink-400 drop-shadow-md" />
+            image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=1200",
         },
         {
-            title: "Pulse Fitness Studio",
-            subtitle: "Booking & Class App",
-            difficulty: "Dynamic",
+            title: "DataMatrixAI",
+            subtitle: "Enterprise SaaS Platform",
+            difficulty: "High Scale",
+            author: "Premium Tech Data Eng",
+            stat1Val: "100k+", stat1Lbl: "Active Users",
+            stat2Val: "99.9%", stat2Lbl: "Uptime",
+            stat3Val: "50TB", stat3Lbl: "Processed",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
+        },
+        {
+            title: "AJ Finance",
+            subtitle: "Fintech Dashboard",
+            difficulty: "Critical",
+            author: "Premium Tech Security",
+            stat1Val: "$500M", stat1Lbl: "Managed",
+            stat2Val: "0.1s", stat2Lbl: "Latency",
+            stat3Val: "SOC2", stat3Lbl: "Compliant",
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
+        },
+        {
+            title: "BuildLy",
+            subtitle: "PropTech Management",
+            difficulty: "Enterprise",
+            author: "Premium Tech Fullstack",
+            stat1Val: "5k+", stat1Lbl: "Properties",
+            stat2Val: "+120%", stat2Lbl: "Efficiency",
+            stat3Val: "Mobile", stat3Lbl: "Native",
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
+        },
+        {
+            title: "NexaHealth",
+            subtitle: "Telemedicine App",
+            difficulty: "Complex",
             author: "Premium Tech Mobile",
-            stat1Val: "10k+", stat1Lbl: "Bookings",
-            stat2Val: "Live", stat2Lbl: "Scheduling",
-            stat3Val: "Stripe", stat3Lbl: "Enabled",
-            image: "/images/client_fitness_app.png",
-            icon: <Activity className="w-6 h-6 text-cyan-400 drop-shadow-md" />
+            stat1Val: "1M+", stat1Lbl: "Consultations",
+            stat2Val: "HIPAA", stat2Lbl: "Certified",
+            stat3Val: "4.9★", stat3Lbl: "App Rating",
+            image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200",
+        },
+        {
+            title: "SecureNet",
+            subtitle: "Cybersecurity Protocol",
+            difficulty: "Hard",
+            author: "Premium Tech ML Core",
+            stat1Val: "0", stat1Lbl: "Breaches",
+            stat2Val: "Real-time", stat2Lbl: "Detection",
+            stat3Val: "-40%", stat3Lbl: "False Pos",
+            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
+        },
+        {
+            title: "Aura Lifestyle",
+            subtitle: "Wellness Marketplace",
+            difficulty: "Medium",
+            author: "Premium Tech Design",
+            stat1Val: "100+", stat1Lbl: "Vendors",
+            stat2Val: "0.8s", stat2Lbl: "Load Time",
+            stat3Val: "Next.js", stat3Lbl: "Powered",
+            image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1200",
+        },
+        {
+            title: "Lumina Engine",
+            subtitle: "3D Rendering Platform",
+            difficulty: "Advanced",
+            author: "Premium Tech Vision API",
+            stat1Val: "WebGL", stat1Lbl: "Rendered",
+            stat2Val: "60fps", stat2Lbl: "Performance",
+            stat3Val: "Cloud", stat3Lbl: "Sync",
+            image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200",
         }
     ];
 
+    const [activeCard, setActiveCard] = useState<number | null>(null);
+
     return (
-        <section className="py-12 md:py-20 bg-[#0a0a0a]">
+        <section className="py-12 md:py-24 bg-[#0a0a0a]">
             {/* Max width container */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
-                    {projects.map((project, idx) => (
-                        <div key={idx} className="overflow-hidden flex flex-col group bg-[#141414] rounded-2xl md:rounded-[24px] border border-neutral-800 transition-all duration-300">
-
-                            {/* Image Section (Top Half) */}
-                            <div className="h-[220px] md:h-[260px] relative w-full overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full">
+                    {projects.map((project, idx) => {
+                        const isActive = activeCard === idx;
+                        return (
+                            <div 
+                                key={idx} 
+                                className="relative overflow-hidden group rounded-[24px] md:rounded-[32px] aspect-[4/3] md:aspect-[16/10] bg-[#141414] border border-neutral-800"
+                                onMouseLeave={() => setActiveCard(null)}
+                            >
+                                {/* Background Image */}
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     fill
-                                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                                    className={`object-cover object-center transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] ${isActive ? 'scale-110 blur-sm brightness-50' : 'group-hover:scale-110 group-hover:blur-sm group-hover:brightness-50'}`}
                                 />
-                                {/* Bottom Gradient Overlay for Text Visibility */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                                
+                                {/* Always visible subtle gradient to make the bottom left icon/text readable if needed, or just let the image shine */}
+                                <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-500 ${isActive ? 'opacity-0' : 'group-hover:opacity-0'}`}></div>
 
-                                {/* Overlay Text */}
-                                <div className="absolute bottom-4 left-5 right-5 z-10">
-                                    <h3 className="text-[22px] font-bold text-white tracking-tight leading-tight mb-1">{project.title}</h3>
-                                    <p className="text-[15px] font-medium text-amber-500/90 tracking-wide">{project.subtitle}</p>
+                                {/* Mobile Toggle Button (Visible only on touch / small screens or when inactive) */}
+                                <button 
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setActiveCard(isActive ? null : idx);
+                                    }}
+                                    className={`absolute bottom-5 right-5 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all duration-300 xl:hidden ${isActive ? 'rotate-45 bg-white/20' : ''}`}
+                                    aria-label="Toggle project details"
+                                >
+                                    <Plus className="w-6 h-6" />
+                                </button>
+
+                                {/* Project Identity (Always visible initially, moves up on hover/active) */}
+                                <div className={`absolute bottom-6 left-6 z-20 transition-all duration-500 ease-out transform ${isActive ? 'translate-y-[-120%] opacity-0' : 'group-hover:translate-y-[-120%] group-hover:opacity-0'}`}>
+                                    <h3 className="text-2xl font-bold text-white tracking-tight mb-1 drop-shadow-md">{project.title}</h3>
+                                    <p className="text-sm font-medium text-neutral-300 drop-shadow-md">{project.subtitle}</p>
+                                </div>
+
+                                {/* Detailed Overlay (Hidden initially, slides up on hover/active) */}
+                                <div className={`absolute inset-0 z-20 p-8 md:p-10 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/80 to-transparent transition-all duration-500 ease-out transform ${isActive ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'}`}>
+                                    
+                                    <div className="mb-6">
+                                        <h3 className="text-3xl font-bold text-white tracking-tight mb-2">{project.title}</h3>
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-[#89c240] font-semibold">{project.subtitle}</span>
+                                            <span className="w-1.5 h-1.5 rounded-full bg-neutral-600"></span>
+                                            <span className="text-neutral-400 text-sm">{project.difficulty}</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Stats Grid */}
+                                    <div className="grid grid-cols-3 gap-4 pt-6 mt-2 border-t border-neutral-800">
+                                        <div className="flex flex-col">
+                                            <span className="text-[18px] md:text-xl font-bold text-white mb-1">{project.stat1Val}</span>
+                                            <span className="text-xs md:text-sm text-neutral-400">{project.stat1Lbl}</span>
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-[18px] md:text-xl font-bold text-white mb-1">{project.stat2Val}</span>
+                                            <span className="text-xs md:text-sm text-neutral-400">{project.stat2Lbl}</span>
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-[18px] md:text-xl font-bold text-white mb-1">{project.stat3Val}</span>
+                                            <span className="text-xs md:text-sm text-neutral-400">{project.stat3Lbl}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="mt-8 text-xs text-neutral-500 font-medium uppercase tracking-widest">
+                                        Built by {project.author}
+                                    </div>
                                 </div>
                             </div>
-
-                            {/* Info Section (Middle) */}
-                            <div className="pt-5 px-6 pb-2">
-                                <div className="flex justify-between items-start mb-4">
-                                    <div>
-                                        <h4 className="text-[17px] font-bold text-white mb-1.5">{project.difficulty}</h4>
-                                        <p className="text-[14px] text-neutral-400 font-medium">Built by {project.author}</p>
-                                    </div>
-                                    <div className="shrink-0 pt-0.5">
-                                        {project.icon}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Stats Section (Bottom Columns) */}
-                            <div className="mt-auto px-6 pb-6 w-full">
-                                <div className="grid grid-cols-3 gap-4 pt-5 border-t border-neutral-800 w-full text-center sm:text-left">
-                                    <div className="flex flex-col">
-                                        <span className="text-[15px] font-bold text-white mb-1">{project.stat1Val}</span>
-                                        <span className="text-[13px] text-neutral-500 font-medium">{project.stat1Lbl}</span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[15px] font-bold text-white mb-1">{project.stat2Val}</span>
-                                        <span className="text-[13px] text-neutral-500 font-medium">{project.stat2Lbl}</span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[15px] font-bold text-white mb-1">{project.stat3Val}</span>
-                                        <span className="text-[13px] text-neutral-500 font-medium">{project.stat3Lbl}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>

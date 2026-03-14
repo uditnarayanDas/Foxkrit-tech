@@ -230,31 +230,31 @@ export function FeatureGridSection() {
                         </Card>
 
                         {/* Bottom Right Card: Built to Scale */}
-                        <Card className="col-span-1 md:col-span-2 py-4 px-4 md:p-8 flex flex-col justify-center gap-2 md:gap-3 bg-[#cfe2f3] !border-none !shadow-none !rounded-[32px] relative overflow-hidden text-[#0f3451] group cursor-pointer">
-                            <div className="group-hover:scale-[1.03] transition-transform duration-500 flex flex-col gap-4 w-full h-full justify-center">
+                        <Card className="col-span-1 md:col-span-2 p-5 sm:p-6 lg:p-8 flex flex-col justify-center gap-2 md:gap-3 bg-[#cfe2f3] !border-none !shadow-none !rounded-[32px] relative overflow-hidden text-[#0f3451] group cursor-pointer">
+                            <div className="group-hover:scale-[1.03] transition-transform duration-500 flex flex-col gap-3 md:gap-4 w-full h-full justify-center">
                                 <div className="mb-1">
-                                    <h3 className="text-[20px] md:text-[22px] font-bold mb-1.5 tracking-tight text-black">
+                                    <h3 className="text-[18px] md:text-[20px] font-bold mb-1.5 tracking-tight text-black">
                                         Proven Business Impact
                                     </h3>
-                                    <p className="text-[12px] md:text-[13px] text-gray-700 leading-snug">
+                                    <p className="text-[11px] md:text-[12px] text-gray-700 leading-snug">
                                         Delivering consulting excellence to startups, enterprises, and global organizations.
                                     </p>
                                 </div>
 
-                                <div className="bg-white rounded-xl p-2.5 md:p-3.5 flex items-center justify-between shadow-[0_2px_15px_-4px_rgba(0,0,0,0.05)] border border-transparent w-full gap-2 xl:gap-3">
+                                <div className="bg-white rounded-xl p-2 md:p-2.5 px-3 md:px-3.5 flex items-center justify-between shadow-[0_2px_15px_-4px_rgba(0,0,0,0.05)] border border-transparent w-full gap-2 xl:gap-3">
                                     <div className="flex items-center gap-2 md:gap-3 shrink-0">
-                                        <span className="text-[16px] md:text-xl shrink-0">🚀</span>
-                                        <p className="text-[10px] md:text-[12px] xl:text-[13px] font-bold text-black pt-1 leading-tight whitespace-nowrap">2,598 Deploys</p>
+                                        <span className="text-[14px] md:text-[16px] shrink-0">🚀</span>
+                                        <p className="text-[9px] md:text-[11px] xl:text-[12px] font-bold text-black pt-1 leading-tight whitespace-nowrap">84 Deploys</p>
                                     </div>
-                                    <div className="text-[10px] md:text-[11px] font-bold text-[#0f3451] pt-1 shrink-0 bg-[#cfe2f3]/50 px-1.5 md:px-2 py-0.5 md:py-1 rounded">+24%</div>
+                                    <div className="text-[9px] md:text-[10px] font-bold text-[#0f3451] pt-1 shrink-0 bg-[#cfe2f3]/50 px-1.5 md:px-2 py-0.5 md:py-1 rounded">+24%</div>
                                 </div>
 
-                                <div className="bg-white rounded-xl p-2.5 md:p-3.5 flex items-center justify-between shadow-[0_2px_15px_-4px_rgba(0,0,0,0.05)] border border-transparent w-full gap-2 xl:gap-3">
+                                <div className="bg-white rounded-xl p-2 md:p-2.5 px-3 md:px-3.5 flex items-center justify-between shadow-[0_2px_15px_-4px_rgba(0,0,0,0.05)] border border-transparent w-full gap-2 xl:gap-3">
                                     <div className="flex items-center gap-2 md:gap-3 shrink-0">
-                                        <span className="text-[16px] md:text-xl text-orange-500 shrink-0">⚡</span>
-                                        <p className="text-[10px] md:text-[12px] xl:text-[13px] font-bold text-black pt-1 leading-tight whitespace-nowrap">99.9% Uptime</p>
+                                        <span className="text-[14px] md:text-[16px] text-orange-500 shrink-0">⚡</span>
+                                        <p className="text-[9px] md:text-[11px] xl:text-[12px] font-bold text-black pt-1 leading-tight whitespace-nowrap">99.9% Uptime</p>
                                     </div>
-                                    <div className="text-[10px] md:text-[11px] font-bold text-[#0f3451] pt-1 shrink-0 bg-[#cfe2f3]/50 px-1.5 md:px-2 py-0.5 md:py-1 rounded">+0.2%</div>
+                                    <div className="text-[9px] md:text-[10px] font-bold text-[#0f3451] pt-1 shrink-0 bg-[#cfe2f3]/50 px-1.5 md:px-2 py-0.5 md:py-1 rounded">+0.2%</div>
                                 </div>
                             </div>
                         </Card>

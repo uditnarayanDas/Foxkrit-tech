@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { BadgeCheck, Briefcase, Zap } from "lucide-react";
+import { BadgeCheck, Briefcase, Zap, Users } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 // Custom Counter Component using Framer Motion
@@ -51,13 +51,13 @@ export function StatsSection() {
                         >
                             <div className="h-[72px] flex items-center justify-center relative z-10 mb-5">
                                 <div className="flex -space-x-3">
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=ffb6b9" alt="User 1" className="w-12 h-12 rounded-xl object-cover border-[3px] border-[#f8f9fa] shadow-md z-30" />
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&backgroundColor=fde08b" alt="User 2" className="w-12 h-12 rounded-xl object-cover border-[3px] border-[#f8f9fa] shadow-md z-20 translate-y-2" />
-                                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Liam&backgroundColor=ffb6b9" alt="User 3" className="w-12 h-12 rounded-xl object-cover border-[3px] border-[#f8f9fa] shadow-md z-10" />
+                                    <img src="https://i.pravatar.cc/100?img=11" alt="User 1" className="w-12 h-12 rounded-xl object-cover border-[3px] border-[#f8f9fa] shadow-md z-30" />
+                                    <img src="https://i.pravatar.cc/100?img=5" alt="User 2" className="w-12 h-12 rounded-xl object-cover border-[3px] border-[#f8f9fa] shadow-md z-20 translate-y-2" />
+                                    <img src="https://i.pravatar.cc/100?img=33" alt="User 3" className="w-12 h-12 rounded-xl object-cover border-[3px] border-[#f8f9fa] shadow-md z-10" />
                                 </div>
                             </div>
                             <h3 className="text-[40px] md:text-[44px] font-bold text-neutral-900 tracking-tight leading-none mb-2">
-                                <Counter value={300} suffix="K+" />
+                                <Counter value={50} suffix="+" />
                             </h3>
                             <p className="text-neutral-600 text-[13px] font-medium tracking-wide">Team Collaborations</p>
                         </motion.div>
@@ -73,7 +73,7 @@ export function StatsSection() {
                                 <BadgeCheck className="w-6 h-6 text-white relative z-10 stroke-[1.5]" />
                             </div>
                             <h3 className="text-[40px] md:text-[44px] font-bold text-neutral-900 tracking-tight leading-none mb-2">
-                                <Counter value={500} suffix="K+" />
+                                <Counter value={150} suffix="+" />
                             </h3>
                             <p className="text-neutral-600 text-[13px] font-medium tracking-wide">Tasks Completed</p>
                         </motion.div>
@@ -89,7 +89,7 @@ export function StatsSection() {
                                 <Briefcase className="w-6 h-6 text-white relative z-10 stroke-[1.5]" />
                             </div>
                             <h3 className="text-[40px] md:text-[44px] font-bold text-neutral-900 tracking-tight leading-none mb-2">
-                                <Counter value={20} suffix="K+" />
+                                <Counter value={25} suffix="+" />
                             </h3>
                             <p className="text-neutral-600 text-[13px] font-medium tracking-wide">Projects Managed</p>
                         </motion.div>
@@ -105,7 +105,7 @@ export function StatsSection() {
                                 <Zap className="w-6 h-6 text-white relative z-10 stroke-[1.5]" />
                             </div>
                             <h3 className="text-[40px] md:text-[44px] font-bold text-neutral-900 tracking-tight leading-none mb-2">
-                                <Counter value={100} suffix="K+" />
+                                <Counter value={40} suffix="+" />
                             </h3>
                             <p className="text-neutral-600 text-[13px] font-medium tracking-wide">Successful Integrations</p>
                         </motion.div>

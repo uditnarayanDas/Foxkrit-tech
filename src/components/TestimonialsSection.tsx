@@ -9,35 +9,35 @@ export function TestimonialsSection() {
     const testimonials = [
         {
             id: 1,
-            quote: "From concept to completion, the entire development process was seamless. Our user engagement increased by 40% and we couldn't be happier with the results.",
-            author: "Michael Torres",
+            quote: "From the initial consultation to the final deployment, the process was incredibly smooth. They understood our local market needs and delivered a platform that boosted our engagement by over 40%.",
+            author: "Rahul Sharma",
             role: "Founder",
-            company: "Riverside Tech",
-            img: "1"
+            company: "TechNova India",
+            img: "11"
         },
         {
             id: 2,
-            quote: "Their attention to detail and ability to understand our business logic was outstanding. The final product exceeded all expectations in both design and performance.",
-            author: "Sarah Jenkins",
+            quote: "Their technical expertise and attention to our specific business requirements were outstanding. The new web application is fast, robust, and completely exceeded our expectations.",
+            author: "Priya Patel",
             role: "CEO",
-            company: "TechFlow Solutions",
-            img: "12"
+            company: "NexaGrowth Solutions",
+            img: "47"
         },
         {
             id: 3,
-            quote: "We needed a complete overhaul of our legacy systems. Not only did they deliver on time, but the new architecture has saved us thousands in server costs.",
-            author: "David Chen",
+            quote: "We needed an agile team to overhaul our legacy infrastructure. Foxkrit delivered a modern, scalable architecture that has significantly reduced our server costs and improved overall performance.",
+            author: "Vikram Singh",
             role: "CTO",
-            company: "Innovate AI",
-            img: "5"
+            company: "DataSys Enterprise",
+            img: "60"
         },
         {
             id: 4,
-            quote: "The team's responsiveness and dedication to quality are unmatched. They didn't just build a website; they built a scalable platform for our future growth.",
-            author: "Emily Watson",
+            quote: "Partnering with this team was a game-changer for our digital presence. They didn't just build a website; they created a reliable growth engine that has driven our client acquisition immensely.",
+            author: "Anjali Desai",
             role: "Marketing Director",
-            company: "GrowthX",
-            img: "8"
+            company: "Elevate Digital",
+            img: "68"
         }
     ];
 
@@ -133,7 +133,7 @@ export function TestimonialsSection() {
                         </div>
 
                         {/* Quote */}
-                        <div className="flex justify-start text-left w-full">
+                        <div className="flex justify-start text-left w-full h-[180px] sm:h-[160px]">
                             <div className="max-w-lg w-full flex flex-col justify-center">
                                 <AnimatePresence mode="wait">
                                     <motion.div
@@ -143,7 +143,7 @@ export function TestimonialsSection() {
                                         exit={{ opacity: 0, x: -20 }}
                                         transition={{ duration: 0.4 }}
                                     >
-                                        <p className="text-[16px] sm:text-[17px] leading-[1.7] text-[#a1a1aa] mb-6">
+                                        <p className="text-[16px] sm:text-[17px] leading-[1.7] text-[#a1a1aa] mb-6 line-clamp-4">
                                             &quot;{testimonials[activeIndex].quote}&quot;
                                         </p>
                                         <div className="text-[14px] sm:text-[15px]">

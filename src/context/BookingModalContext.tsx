@@ -13,6 +13,15 @@ const BookingModalContext = createContext<BookingModalContextType | undefined>(u
 export function BookingModalProvider({ children }: { children: ReactNode }) {
     const [isOpen, setIsOpen] = useState(false);
 
+    // Auto-open modal after 12 seconds
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsOpen(true);
+        }, 12000);
+        // Cleanup the timer if the component unmounts early
+        return () => clearTimeout(timer);
+    }, []);
+
     const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
 

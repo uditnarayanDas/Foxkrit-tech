@@ -36,6 +36,8 @@ function Counter({ value, suffix = "", prefix = "" }: { value: number; suffix?: 
     );
 }
 
+import { ScrollDownIndicator } from "@/components/ScrollDownIndicator";
+
 export default function AboutPage() {
     const values = [
         { icon: <Heart className="w-5 h-5" />, title: "Client First", desc: "We prioritize your business objectives above everything else. Your success is the true metric of our success." },
@@ -57,12 +59,12 @@ export default function AboutPage() {
         <div className="bg-[#0a0a0a] min-h-screen text-white font-sans selection:bg-[#def249] selection:text-black">
 
             {/* Hero Section */}
-            <section className="pt-32 pb-20 md:pt-40 md:pb-32 border-b border-neutral-900 overflow-hidden relative">
+            <section className="pt-32 pb-24 md:pt-36 md:pb-24 min-h-[50vh] lg:min-h-[55vh] flex flex-col justify-center border-b border-neutral-900 overflow-hidden relative">
                 {/* Subtle Background Glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#def249]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm text-xs font-semibold tracking-wide uppercase text-neutral-300 mb-8">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm text-xs font-semibold tracking-wide uppercase text-neutral-300 mb-8 mt-auto md:mt-0">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#89c240]"></div>
                         ABOUT US
                     </div>
@@ -76,6 +78,8 @@ export default function AboutPage() {
                         An elite league of developers, designers, and strategists. We don't just build websites; we craft premium digital experiences that transform businesses and accelerate growth.
                     </p>
                 </div>
+                
+                <ScrollDownIndicator />
             </section>
 
             {/* Our Story / Image Section */}
