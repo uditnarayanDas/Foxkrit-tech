@@ -22,6 +22,7 @@ import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { BookingModalProvider } from "@/context/BookingModalContext";
 import { BookingModal } from "@/components/BookingModal";
+import { CookieBanner } from "@/components/CookieBanner";
 
 export default function RootLayout({
   children,
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        suppressHydrationWarning
       >
         <div className="fixed inset-0 pointer-events-none z-[999] bg-[linear-gradient(rgba(128,128,128,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(128,128,128,0.04)_1px,transparent_1px)] bg-[size:32px_32px]" />
         <SmoothScroll>
@@ -42,6 +44,7 @@ export default function RootLayout({
             </main>
             <Footer />
             <BookingModal />
+            <CookieBanner />
           </BookingModalProvider>
         </SmoothScroll>
       </body>

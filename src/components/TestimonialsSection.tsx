@@ -34,7 +34,7 @@ export function TestimonialsSection() {
         {
             id: 4,
             quote: "Partnering with this team was a game-changer for our digital presence. They didn't just build a website; they created a reliable growth engine that has driven our client acquisition immensely.",
-            author: "Anjali Desai",
+            author: "Ankur Desai",
             role: "Marketing Director",
             company: "Elevate Digital",
             img: "68"

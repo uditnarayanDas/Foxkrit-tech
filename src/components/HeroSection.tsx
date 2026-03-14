@@ -19,6 +19,7 @@ export function HeroSection() {
                     display: flex;
                     width: max-content;
                     animation: marquee 40s linear infinite;
+                    will-change: transform;
                 }
                 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
                 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800;900&display=swap');
@@ -90,17 +91,41 @@ export function HeroSection() {
 
             {/* Marquee Banner */}
             <div className="absolute bottom-0 left-0 w-full bg-[#0f172a] border-y border-neutral-800 overflow-hidden flex z-30 shadow-[0_-5px_20px_rgba(15,23,42,0.1)]">
-                <div className="animate-marquee items-center py-2.5 sm:py-3 text-white font-bold text-sm sm:text-[15px] whitespace-nowrap tracking-wide leading-none">
-                    {[...Array(8)].map((_, i) => (
-                        <div key={i} className="flex items-center">
-                            <span className="px-6 md:px-10 flex-shrink-0 pt-0.5">Special discounts available for recurring consulting!</span>
-                            <div className="w-8 h-[1.5px] bg-neutral-700"></div>
-                            <span className="px-6 md:px-10 flex-shrink-0 pt-0.5">Free estimates! Contact us today to schedule your call!</span>
-                            <div className="w-8 h-[1.5px] bg-neutral-700"></div>
-                            <span className="px-6 md:px-10 flex-shrink-0 pt-0.5">Elevate your online presence today!</span>
-                            <div className="w-8 h-[1.5px] bg-neutral-700"></div>
-                        </div>
-                    ))}
+                {/* 
+                    We render two identical blocks of the repeating text inside an animate-marquee container.
+                    This guarantees a perfectly seamless infinite scroll loop since as the first block scrolls out,
+                    the second block instantly follows it before the animation snaps back to 0. 
+                */}
+                <div className="animate-marquee flex items-center py-2.5 sm:py-3 text-white font-bold text-sm sm:text-[15px] whitespace-nowrap tracking-wide leading-none">
+                    
+                    {/* Block 1 */}
+                    <div className="flex items-center">
+                        {[...Array(4)].map((_, i) => (
+                            <div key={`b1-${i}`} className="flex items-center">
+                                <span className="px-6 md:px-10 flex-shrink-0 pt-0.5">Special discounts available for recurring consulting!</span>
+                                <div className="w-8 h-[1.5px] bg-neutral-700"></div>
+                                <span className="px-6 md:px-10 flex-shrink-0 pt-0.5">Free estimates! Contact us today to schedule your call!</span>
+                                <div className="w-8 h-[1.5px] bg-neutral-700"></div>
+                                <span className="px-6 md:px-10 flex-shrink-0 pt-0.5">Elevate your online presence today!</span>
+                                <div className="w-8 h-[1.5px] bg-neutral-700"></div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Block 2 (Exact Clone for seamless loop) */}
+                    <div className="flex items-center">
+                        {[...Array(4)].map((_, i) => (
+                            <div key={`b2-${i}`} className="flex items-center">
+                                <span className="px-6 md:px-10 flex-shrink-0 pt-0.5">Special discounts available for recurring consulting!</span>
+                                <div className="w-8 h-[1.5px] bg-neutral-700"></div>
+                                <span className="px-6 md:px-10 flex-shrink-0 pt-0.5">Free estimates! Contact us today to schedule your call!</span>
+                                <div className="w-8 h-[1.5px] bg-neutral-700"></div>
+                                <span className="px-6 md:px-10 flex-shrink-0 pt-0.5">Elevate your online presence today!</span>
+                                <div className="w-8 h-[1.5px] bg-neutral-700"></div>
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </div>
 
