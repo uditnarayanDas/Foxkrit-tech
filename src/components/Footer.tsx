@@ -68,7 +68,7 @@ export function Footer() {
                 {/* Sub Footer Row */}
                 <div className="mt-16 md:mt-20 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center gap-4 z-10 relative">
                     <p className="text-neutral-500 text-sm">
-                        © {new Date().getFullYear()} FOXKRIT Technology. All rights reserved.
+                        © {new Date().getFullYear()} FOXKRIT AI CONSULTING. All rights reserved.
                     </p>
                     <div className="flex space-x-6 text-sm">
                         <Link href="#" className="text-neutral-500 hover:text-white transition-colors">Terms</Link>
