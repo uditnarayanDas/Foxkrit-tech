@@ -2,7 +2,13 @@ import { CaseStudiesSection } from "@/components/CaseStudiesSection";
 import { ScrollDownIndicator } from "@/components/ScrollDownIndicator";
 
 export const metadata = {
-    title: "Work | Premium Tech",
+    title: "Business Websites & Web Apps Portfolio | Foxkrit",
+    description: "Explore how Foxkrit AI Consulting accelerates business growth through high-performance Business Websites, E-commerce Websites, and custom Web Apps.",
+    openGraph: {
+        title: "Portfolio: Business Websites & Web Apps | Foxkrit AI Consulting",
+        description: "Explore how we accelerate business growth through high-performance Business Websites, E-commerce, and custom Web Apps.",
+        url: "https://foxkrit-tech.onrender.com/work",
+    }
 };
 
 export default function WorkPage() {

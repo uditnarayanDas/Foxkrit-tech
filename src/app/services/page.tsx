@@ -2,7 +2,13 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { ScrollDownIndicator } from "@/components/ScrollDownIndicator";
 
 export const metadata = {
-    title: "Services | Premium Tech",
+    title: "IT Consulting, Website Consulting & Maintenance | Foxkrit",
+    description: "Expert IT consulting and website consulting. We offer Consulting + Maintenance, custom Web Apps / Dashboards, E-commerce Websites, and Performance + SEO optimization.",
+  openGraph: {
+        title: "IT Consulting & Website Consulting | Foxkrit AI Consulting",
+        description: "Expert IT consulting, Consulting + Maintenance, custom Web Apps, and Performance + SEO optimization.",
+        url: "https://foxkrit-tech.onrender.com/services",
+    }
 };
 
 export default function ServicesPage() {

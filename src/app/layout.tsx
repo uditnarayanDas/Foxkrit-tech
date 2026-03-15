@@ -13,8 +13,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Foxkrit Technology",
-  description: "Websites & web apps that look premium and bring customers.",
+  metadataBase: new URL("https://foxkrit-tech.onrender.com"),
+  title: {
+    default: "Foxkrit AI Consulting | Web Development & IT Consulting",
+    template: "%s | Foxkrit AI Consulting",
+  },
+  description: "Elite website developer and IT consulting agency. We engineer business growth through premium Business Websites, E-commerce Websites, Web Apps, and UI/UX Design.",
+  keywords: [
+    "IT consulting",
+    "AI consulting services",
+    "software development company",
+    "website development services",
+    "business website development",
+    "ecommerce website development",
+    "web application development",
+    "UI UX design services",
+    "website maintenance services",
+    "SEO optimization services",
+    "machine learning development",
+    "AI automation solutions",
+    "Foxkrit Tech"
+  ],
+  openGraph: {
+    title: "Foxkrit Technology | Elite Digital Experiences",
+    description: "Premium websites, web apps, and strategic tech consulting that accelerates growth.",
+    url: "https://foxkrit-tech.onrender.com",
+    siteName: "Foxkrit Technology",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Foxkrit Technology | Elite Digital Experiences",
+    description: "Premium websites, web apps, and strategic tech consulting that accelerates growth.",
+  },
 };
 
 import { NavigationWrapper } from "@/components/NavigationWrapper";
