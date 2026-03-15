@@ -2,8 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import { Navbar } from "./Navbar";
-import { BackToHomeButton } from "./BackToHomeButton";
-
 import { FloatingMenu } from "./FloatingMenu";
 
 export function NavigationWrapper() {
@@ -14,13 +12,9 @@ export function NavigationWrapper() {
 
     // Check if the current pathname exactly matches one of the hidden routes
     const shouldHideNavbar = hideNavbarRoutes.includes(pathname);
+
     if (shouldHideNavbar) {
-        return (
-            <>
-                <BackToHomeButton />
-                <FloatingMenu />
-            </>
-        );
+        return <FloatingMenu />;
     }
 
     return <Navbar />;
