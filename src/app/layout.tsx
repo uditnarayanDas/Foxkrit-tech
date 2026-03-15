@@ -62,6 +62,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { BookingModalProvider } from "@/context/BookingModalContext";
 import { BookingModal } from "@/components/BookingModal";
 import { CookieBanner } from "@/components/CookieBanner";
+import { ChatBot } from "@/components/ChatBot";
 
 export default function RootLayout({
   children,
@@ -84,6 +85,7 @@ export default function RootLayout({
             <Footer />
             <BookingModal />
             <CookieBanner />
+            <ChatBot />
           </BookingModalProvider>
         </SmoothScroll>
       </body>
